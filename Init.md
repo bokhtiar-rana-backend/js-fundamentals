@@ -138,3 +138,31 @@ so that the dot isn’t interpreted as a decimal separator - (3).toString()**
 | array with a single number | number | a string 'number' |
 | Other arrays | NaN | string with elements of array joined by ',', like '1,2,3' |
 | Objects | NaN by default, customizable | By default, '[object Object]', but can be customized |
+
+**Tips to follow**
+ - Don’t rely on automatic type conversions
+ - Prefer template literals instead of string concatenation
+ 
+### Boolean Values
+
+ - Boolean type has only two values 'true' and 'false'
+ - In a condition, values of any type will be converted into Boolean values 
+	- 0, NaN, null, undefined, and the empty string are each converted to **false**
+	- All others are **true**
+	- In some cases, it might provide very confusing result
+		- Best practice is to use **Boolean** values in condition
+		
+### null and undefined
+
+ - JS has two ways to indicate the absence of a value
+	- A variable is declared but not initialized, it's **undefined**
+		- Commonly happens with function, when function has a parameter but it's not passed during function called
+	- **null** is used with intentional absence of a value
+	- **Better to use either <sub>undefined</sub> or <sub>null</sub> in a project for intentional absence of a value**
+		- This will avoid unnecessary check for both undefined and null 
+		
+### String literals
+
+
+ 
+
