@@ -315,3 +315,57 @@ so that the dot isn’t interpreted as a decimal separator - (3).toString()**
 	// Or log them in an object:
 	console.log({ harry, sally }) // Logs { harry: { ... }, sally: { ... } }
 	```
+	
+### Destructuring
+
+**Convenient syntax for fetching elements from arrays or values from objects.**
+
+ - Array Destructuring
+	- Simplifies extraction of array elements.
+	```javascript
+	let [first, second] = pair
+	// Complex cases
+	let [first, [second, third]] = [1, [2, 3]]
+	// first = 1, second = 2, third = 3
+	```
+	
+	- Unmatched elements are ignored or set to undefined
+	```javascript
+	let [first, second] = [1, 2, 3] // third element ignored
+	let [first, second] = [1] // second = undefined
+	```
+
+	- Reassigning Variables
+		- Destructuring can reassign already declared variables:
+		```javascript
+		[first, second] = [4, 5]
+		// Swapping values
+		[x, y] = [y, x]
+		```
+
+	- Using Lvalues
+		- Any lvalues can be used on the left-hand side:
+		```javascript
+		[numbers[0], harry.age] = [13, 42]
+		```
+
+ - Object Destructuring
+	- Use property names to extract values.
+	```javascript
+	let harry = { name: 'Harry', age: 42 }
+	let { name: harrysName, age: harrysAge } = harry
+	```
+
+	- Shorthand when property names match variable names
+	```javascript
+	let { name, age } = harry
+	// Same as:
+	let { name: name, age: age } = harry
+	```
+
+	- Assignment with Existing Variables
+		- Enclose in parentheses to avoid block statement ambiguity:
+		```javascript
+		Copy code
+		({ name, age } = sally)
+		```
