@@ -364,8 +364,87 @@ so that the dot isn’t interpreted as a decimal separator - (3).toString()**
 	```
 
 	- Assignment with Existing Variables
-		- Enclose in parentheses to avoid block statement ambiguity:
+		- Enclose in parentheses otherwise it'll be parsed as block statement
 		```javascript
 		Copy code
 		({ name, age } = sally)
 		```
+		
+#### Advanced Destructuring
+
+ - Destructure nested objects
+	- Extracts year from the birthday object inside pat.
+	```javascript
+	let pat = { name: 'Pat', birthday: { day: 14, month: 3, year: 2000 } };
+	let { birthday: { year: patsBirthYear } } = pat;
+	```
+	- Declares the variable patsBirthYear and initializes it to 2000
+	- This is equivalant to
+	```javascript
+	// Directly assigns pat.birthday.year to patsBirthYear.
+	let patsBirthYear = pat.birthday.year;
+	```
+	
+ - Computed Property Names
+	- Use computed property names: Uses a dynamic key (field.toLowerCase()) to extract a property.
+	```javascript
+	let field = 'Age';
+	let { [field.toLowerCase()]: harrysAge } = harry;
+	// Sets value to harry[field.toLowerCase()]
+	```
+
+ - Destructuring Arrays:
+	- Capture remaining elements: first gets the first element, second gets the second, and others captures the rest.
+	```javascript
+	let numbers = [1, 7, 2, 9];
+	let [first, second, ...others] = numbers;
+	// first is 1, second is 7, and others is [2, 9]
+	```
+
+	- If insufficient elements, then the rest variable becomes an empty array
+	```javascript
+	let [first, second, ...others] = [42];
+	// first is 42, second is undefined, others is []
+	// first gets the first element, second is undefined, and others is an empty array.
+	```
+ 
+ - Rest Declaration for Objects
+	- A rest declaration also works for objects
+	```javascript
+	const harry = { age: 42, firstName: 'Harry', lastName: 'Styles', name: 'Julliet' }
+	let { name, ...allButName } = harry;
+	// allButName is { age: 42, firstName: 'Harry', lastName: 'Styles'}
+	// name gets the name property, and allButName captures the rest of the properties.
+	```
+	
+	- If insufficient elements, then the rest variable becomes an empty array
+	```javascript
+	const harry = { name: 'Harry' }
+	const { name, ...rest } = harry
+	// here rest is empty object {}
+	```
+	
+ - Destructuring with Defaults:
+	- Can provide default value for each, it'll be used if desired value is not present in object or array
+	```javascript
+	let [first, second = 0] = [42];
+	// Sets first to 42, second to 0 since the right-hand side has no matching element
+
+	const harry = { name: 'Harry' }
+	let { nickname = 'None' } = harry;
+	// Sets nickname to 'None' since harry has no nickname property
+	```
+	
+	- Can use previously set variables in defaults
+	```javascript
+	let { name, nickname = name } = harry;
+	// Both name and nickname are set to harry.name
+	```
+
+	- Application with defaults
+	```javascript
+	let config = { separator: '; ' };
+	const { separator = ',', leftDelimiter = '[', rightDelimiter = ']' } = config;
+	// separator is '; ', leftDelimiter is '[', rightDelimiter is ']'
+	// Uses provided separator and defaults for leftDelimiter and rightDelimiter.
+	```
