@@ -435,16 +435,16 @@ so that the dot isn’t interpreted as a decimal separator. Use (3).toString() i
 	// Sets first to 42, second to 0 since the right-hand side has no matching element
 
 	const harry = { name: 'Harry' }
-	let { lastName: nickname = 'None' } = harry;
-	// Sets nickname to 'None' since harry has no lastName property
-	let { nickname = 'None' } = harry;
-	// Sets nickname to 'None' since harry has no nickname property
+	let { lastName: nickName = 'None' } = harry;
+	// Sets nickName to 'None' since harry has no lastName property
+	let { nickName = 'None' } = harry;
+	// Sets nickName to 'None' since harry has no nickName property
 	```
 	
 	- Can use previously set variables in defaults
 	```javascript
-	let { name, nickname = name } = harry;
-	// Both name and nickname are set to harry.name
+	let { name, nickName = name } = harry;
+	// Both name and nickName are set to harry.name
 	```
 
 	- Application with defaults
