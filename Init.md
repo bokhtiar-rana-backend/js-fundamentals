@@ -4,13 +4,13 @@
  - Use **strict mode**
  - Know your types and avoid automatic type conversion
  - Understand prototypes, but use modern syntax for classes, constructors, and methods
- - Don’t use this outside constructors or methods
+ - Don’t use <sub>this</sub> outside constructors or methods
  
 ### Types and TypeOf Operator 
 
 **Every value in JS in one of the following Types**
 
- - A number
+ - A number **Inclues NaN and Infinity: typeof NaN/Infinity is 'number'**
  - Boolean (True/False)
  - Special Values (null and undefinded)
  - A string
@@ -22,18 +22,20 @@
  - For any value, it's type can be found by typeof operator
  - typeof operator returns a string ('string'/'number'/...)
 
-**though null is different from object but typeof null is 'object', a historical accident**
+**Though null is different from object but typeof null is 'object', a historical accident**
+**typeof undefined is equaled to 'undefined'**
 
-**Constructing objects that wrap primitive types like: new Number(42)/new String('hello') will have typeof object**
+**Constructing objects that wrap primitive types like: new Number(42)/new String('hello') will have typeof 'object'**
  - In JavaScript, there is no good reason to construct such wrapper instances
  - Coding standard recommends not to use it.
  
 **https://jsdoc.app/, can be used for documentation comment**
 
 ```
-Variables in JS are untyped, so a Variable that is initialized with **number** can be set to **string** later
-It's not a good idea to do this.
-There might be some scenarios, where this is necessary. Ex: Writing some generic that might work with different types
+Variables in JS are untyped, so a Variable that is initialized with <sub>number<sub>
+can be set to <sub>string</sub> later. Though, it's not a good idea to do this.
+There might be some scenarios, where this is necessary. 
+Ex: Writing some generic that might work with different types
 ```
 
  - If a Variable is not initialized, it has a special value **undefinded**. Ex: let x;
