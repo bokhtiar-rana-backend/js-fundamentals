@@ -227,3 +227,57 @@ so that the dot isn’t interpreted as a decimal separator - (3).toString()**
 	```javascript
 		({} - 1) // Forces interpretation as an object literal
 	```
+	
+### Arrays
+
+**In JavaScript, an array is simply an object whose property names are the strings '0', '1', '2', and so on.**
+
+ - Array Length and Indexing
+	- The length property is one more than the highest index.
+	- Example: numbers.length is 4.
+	- Use bracket notation to access elements: numbers['1'] or numbers[1].
+ 
+ - Element Types
+	- Arrays can contain mixed types (e.g., numbers and strings).
+	- Example: const numbers = [1, 2, 3, 'four'].
+
+ - Missing Elements
+	- Arrays can have missing elements.
+	- Example: const someNumbers = [, 2, , 9] (no properties '0', '2').
+	- Nonexistent properties return undefined.
+	
+ - Adding Elements
+	- Add elements past the end of the array.
+	- Example: someNumbers[6] = 11 (length becomes 7).
+
+ - Trailing Commas
+	 - Trailing commas do not indicate missing elements.
+	- Example: [1, 2, 7, 9,] has four elements (highest index is 3).
+	- Useful for expanding literals over time.
+
+ - Arbitrary Properties
+	- Arrays can have arbitrary properties.
+	- Example: numbers.lucky = true.
+
+ - Type Checking
+	- typeof returns 'object' for arrays.
+	- Use Array.isArray(obj) to check if an object is an array.
+
+ - String Conversion
+	- Arrays convert to strings by joining elements with commas.
+	- Example: '' + [1, 2, 3] results in the string '1,2,3'.
+	- An array of length 0 becomes an empty string.
+
+ - Multidimensional Arrays:
+	- Simulate with arrays of arrays.
+	```javascript
+	const melancholyMagicSquare = [
+	  [16, 3, 2, 13],
+	  [5, 10, 11, 8],
+	  [9, 6, 7, 12],
+	  [4, 15, 14, 1]
+	];
+
+	Access elements with two bracket pairs:
+	melancholyMagicSquare[1][2] // 11
+	```
