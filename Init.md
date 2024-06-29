@@ -94,7 +94,7 @@ so that the dot isn’t interpreted as a decimal separator. Use (3).toString() i
 **When a integer is expected but passing fractional number, based on situation it might work or not**
 
  - 'Hello'.substring(0, 2.5), this will truncate the number to next smaller integer
- - But providing a fractional index: 'Hello'[2.5], this will be **undefinded**
+ - But providing a fractional index: 'Hello'[2.5], this will be **undefined**
  - Best to use Math.trunc(x) or Math.round(x), to avoid guessing what will happen
  - If a number is divided by 0, the result is **Infinity** or **-Infinity**
  - 0/0, is **NaN**, the “not a number” constant
@@ -105,7 +105,7 @@ so that the dot isn’t interpreted as a decimal separator. Use (3).toString() i
  - JS has usual + - * / operators. / Operator always results in floating-point, even if both operands are integers
  - % operator results the reminder for positive integer operands. For negative intigers, there are some exceptions.
  - If operands are fractional, then **k % n** is the value obtained by **subtracting n from k, until result is less than n**
- - The <sub>**</sub> operator denotes “raising to a power”/^. Ex: 2**10 is 1024
+ - The \*\* operator denotes “raising to a power”/^. Ex: 2\*\*10 is 1024
  - If any operand of any Arithmetic operation is **NaN**, then the result is **NaN**
  - Assignment and Arithmetic operation can be combined. Ex: counter += 10
 
