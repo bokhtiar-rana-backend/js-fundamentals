@@ -32,8 +32,8 @@
 **https://jsdoc.app/, can be used for documentation comment**
 
 ```
-Variables in JS are untyped, so a Variable that is initialized with <sub>number<sub>
-can be set to <sub>string</sub> later. Though, it's not a good idea to do this.
+Variables in JS are untyped, so a Variable that is initialized as NUMBER
+can be set to STRING later. Though, it's not a good idea to do this.
 There might be some scenarios, where this is necessary. 
 Ex: Writing some generic that might work with different types
 ```
@@ -43,7 +43,7 @@ Ex: Writing some generic that might work with different types
  - Trying to modify a **const** Variables value will give **run-time error**
  - Multiple Variables can be decalred with a single **let** or **const** statement: Ex: lex x = 100, y = 200;
  
-**Avoid two obsolete forms of variable declarations, with <sub>var</sub> keyword or no keyword at all** 
+**Avoid two obsolete forms of variable declarations, with *var* keyword or no keyword at all** 
 
 
 ### Identifiers
