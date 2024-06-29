@@ -179,8 +179,9 @@ so that the dot isn’t interpreted as a decimal separator. Use (3).toString() i
 
  - JS objects are different from traditional class based languages
  - JS objects are set of name/value pairs or properties
- - Existing property can be modified, deleted, new property can be added, even if object is declared as const
+ - Existing property can be modified, deleted, new property can be added, even if object is declared as **const**
  - Accessing a non-Existing property will give **undefined**
+ - To delete a property, use *delete object.property*
  
 ### Object Literal Syntax
 
@@ -233,12 +234,12 @@ so that the dot isn’t interpreted as a decimal separator. Use (3).toString() i
 
  - Array Length and Indexing
 	- The length property is one more than the highest index.
-	- Example: numbers.length is 4.
+	- Example: const numbers = [1, 2, 3]. Here numbers.length is 4.
 	- Use bracket notation to access elements: numbers['1'] or numbers[1].
  
  - Element Types
-	- Arrays can contain mixed types (e.g., numbers and strings).
-	- Example: const numbers = [1, 2, 3, 'four'].
+	- Arrays can contain mixed types (e.g., numbers, strings, objects).
+	- Example: const numbers = [1, 2, 3, 'four', {name: 'Harry'}].
 
  - Missing Elements
 	- Arrays can have missing elements.
@@ -247,7 +248,10 @@ so that the dot isn’t interpreted as a decimal separator. Use (3).toString() i
 	
  - Adding Elements
 	- Add elements past the end of the array.
-	- Example: someNumbers[6] = 11 (length becomes 7).
+	```javascript
+	const someNumbers = [, 2, , 9]; 
+	someNumbers[6] = 11 // someNumbers.length becomes 7.
+	```
 
  - Trailing Commas
 	- Trailing commas do not indicate missing elements.
@@ -260,7 +264,7 @@ so that the dot isn’t interpreted as a decimal separator. Use (3).toString() i
 
  - Type Checking
 	- typeof returns 'object' for arrays.
-	- Use Array.isArray(obj) to check if an object is an array.
+	- Use Array.isArray(someNumbers) to check if an object is an array.
 
  - String Conversion
 	- Arrays convert to strings by joining elements with commas.
@@ -286,7 +290,7 @@ so that the dot isn’t interpreted as a decimal separator. Use (3).toString() i
 **JSON is a lightweight text format for exchanging object data. Uses JavaScript syntax for object and array literals with some restrictions.**
 
  - Restrictions in JSON
-	- Values can be object literals, array literals, strings, floating-point numbers, and the values true, false, and null.
+	- Values can be object literals, array literals, strings, floating-point numbers, true, false, and null.
 	- Strings values and property names must be delimited by double quotes.
 	- No trailing commas or skipped elements.
 	
@@ -337,6 +341,7 @@ so that the dot isn’t interpreted as a decimal separator. Use (3).toString() i
 	- Reassigning Variables
 		- Destructuring can reassign already declared variables:
 		```javascript
+		let first = 1, second = 2;
 		[first, second] = [4, 5]
 		// Swapping values
 		[x, y] = [y, x]
@@ -377,7 +382,7 @@ so that the dot isn’t interpreted as a decimal separator. Use (3).toString() i
 	let pat = { name: 'Pat', birthday: { day: 14, month: 3, year: 2000 } };
 	let { birthday: { year: patsBirthYear } } = pat;
 	```
-	- Declares the variable patsBirthYear and initializes it to 2000
+		- Declares the variable patsBirthYear and initializes it to 2000
 	- This is equivalant to
 	```javascript
 	// Directly assigns pat.birthday.year to patsBirthYear.
@@ -430,6 +435,8 @@ so that the dot isn’t interpreted as a decimal separator. Use (3).toString() i
 	// Sets first to 42, second to 0 since the right-hand side has no matching element
 
 	const harry = { name: 'Harry' }
+	let { lastName: nickname = 'None' } = harry;
+	// Sets nickname to 'None' since harry has no lastName property
 	let { nickname = 'None' } = harry;
 	// Sets nickname to 'None' since harry has no nickname property
 	```
