@@ -167,7 +167,7 @@ so that the dot isn’t interpreted as a decimal separator - (3).toString()**
  - Can nest template literals inside the ${. . .} expressions
 	- `Hello, ${firstname.length > 0 ? `${firstname[0]}. ` : '' } ${lastname}`
  - Newlines inside the Template Literals are embedded into the string
-	```
+	```html
 	`<div>Hello</div>
 	<div>${destination}</div>`
 	will results in 
