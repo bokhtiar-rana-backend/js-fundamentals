@@ -251,7 +251,7 @@ so that the dot isn’t interpreted as a decimal separator - (3).toString()**
 	- Example: someNumbers[6] = 11 (length becomes 7).
 
  - Trailing Commas
-	 - Trailing commas do not indicate missing elements.
+	- Trailing commas do not indicate missing elements.
 	- Example: [1, 2, 7, 9,] has four elements (highest index is 3).
 	- Useful for expanding literals over time.
 
@@ -278,6 +278,40 @@ so that the dot isn’t interpreted as a decimal separator - (3).toString()**
 	  [4, 15, 14, 1]
 	];
 
-	Access elements with two bracket pairs:
+	// Access elements with two bracket pairs:
 	melancholyMagicSquare[1][2] // 11
+	```
+	
+### JSON
+
+**JSON is a lightweight text format for exchanging object data. Uses JavaScript syntax for object and array literals with some restrictions.**
+
+ - Restrictions in JSON
+	- Values can be object literals, array literals, strings, floating-point numbers, and the values true, false, and null.
+	- Strings values and property names must be delimited by double quotes.
+	- No trailing commas or skipped elements.
+	
+ - Converting Between JSON and JavaScript
+	- JSON.stringify turns a JavaScript object into a JSON string.
+	- JSON.parse parses a JSON string into a JavaScript object.
+
+ - Handling undefined Values
+	- JSON.stringify drops object properties with undefined values.
+	- Converts undefined array elements to null.
+	```javascript
+	JSON.stringify({ name: ['Harry', undefined, 'Smith'], age: undefined })
+	// Result: '{"name":["Harry",null,"Smith"]}'
+	```
+	
+- Logging with JSON
+	- console.log with an object can be uninformative ([object Object]).
+	- Remedy by using JSON.stringify:
+	```javascript
+	console.log(`harry=${JSON.stringify(harry)}`)
+	```
+	- Alternatively, log names and values separately:
+	```javascript
+	console.log('harry=', harry, 'sally=', sally)
+	// Or log them in an object:
+	console.log({ harry, sally }) // Logs { harry: { ... }, sally: { ... } }
 	```
