@@ -53,37 +53,34 @@ Ex: Writing some generic that might work with different types
  - Unicode letters, digits, _ and $
  - Can't start with digits
  - Best to avoid using $ and _ at the start or end
- - Some use _ at start to mark them as private
+ - Some developers use _ at start to mark them as private
  
-This keywords can not be used as identifier:
+ - This keywords can not be used as identifier:
+	```javascript
+	break case catch class const continue debugger default delete do else enum export extends false 
+	finally for function if import in instanceof new null return super switch this throw true try 
+	typeof var void while with
+	```
 
-```
-break case catch class const continue debugger default delete do else enum export extends false 
-finally for function if import in instanceof new null return super switch this throw true try 
-typeof var void while with
-```
+ - Strict mode adds some additional keywords, that can not be used as identifiers:
+	```javascript
+	implements interface let package protected private public static
+	```
 
-Strict mode adds some additional keywords, that can not be used as identifiers:
-
-```
-implements interface let package protected private public static
-```
-
-These keywords can be used but shouldn't
-
-```
-await as async from get of set target yield
-```
+ - These keywords can be used but shouldn't
+	```javascript
+	await as async from get of set target yield
+	```
 
 ### Numbers
 
 **JS doesn't have explicit integer type. All numbers are double-precision floating-point number.**
 
  - Don’t worry about the difference between, say, 1 and 1.0.
- - Any integer numbers between Number.MIN_SAFE_INTEGER (−2^53 + 1 or -9,007,199,254,740,991) 
-   and Number.MAX_SAFE_INTEGER (2^53 − 1 or 9,007,199,254,740,991) are represented accurately
+ - Any integer numbers between *Number.MIN_SAFE_INTEGER (−2^53 + 1 or -9,007,199,254,740,991)* 
+   and *Number.MAX_SAFE_INTEGER (2^53 − 1 or 9,007,199,254,740,991)* are represented accurately
  - Outside this range, will encounter roundoff errors
- - If needed larger than this **big integers** can be used
+ - If needed larger than this, **big integers** can be used
  - To convert a string to a number, can use parseFloat/parseInt. Ex: parseFloat('3.14') will be number 3.14
  - The toString method converts a number to a string. Ex: (3).toString() is '3'
  
@@ -91,7 +88,7 @@ await as async from get of set target yield
 so you don’t invoke them with the dot notation.**
 
 **Can apply methods to number literals. However, number literal numst be enclosed in parentheses
-so that the dot isn’t interpreted as a decimal separator - (3).toString()**
+so that the dot isn’t interpreted as a decimal separator. Use (3).toString() instead of ~~3.toString()~~**
 
 
 **When a integer is expected but passing fractional number, based on situation it might work or not**
