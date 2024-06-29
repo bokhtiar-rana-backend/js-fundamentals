@@ -167,8 +167,12 @@ so that the dot isn’t interpreted as a decimal separator - (3).toString()**
  - Can nest template literals inside the ${. . .} expressions
 	- `Hello, ${firstname.length > 0 ? `${firstname[0]}. ` : '' } ${lastname}`
  - Newlines inside the Template Literals are embedded into the string
-	- `<div>Hello</div>
-	<div>${destination}</div>` results in `<div>Hello</div>\n<div>World</div>`
+	```
+	`<div>Hello</div>
+	<div>${destination}</div>`
+	will results in 
+	`<div>Hello</div>\n<div>World</div>`
+	```
 	- Windows line endings \r\n in the source file are converted to Unix line endings \n in the resulting string
  - To include '\ $ bacticks' need to escape them with backslash
  
