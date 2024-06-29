@@ -176,3 +176,54 @@ so that the dot isn’t interpreted as a decimal separator - (3).toString()**
 	- Windows line endings \r\n in the source file are converted to Unix line endings \n in the resulting string
  - To include '\ $ bacticks' need to escape them with backslash
  
+### Objects
+
+ - JS objects are different from traditional class based languages
+ - JS objects are set of name/value pairs or properties
+ - Existing property can be modified, deleted, new property can be added, even if object is declared as const
+ - Accessing a non-Existing property will give **undefined**
+ 
+### Object Literal Syntax
+
+ - Trailing Comma in Object Literal
+	- Allows easy addition of new properties.
+	```javascript
+		let harry = {
+		  name: 'Harry Smith',
+		  age: 42, // Add more properties below
+		}
+	```
+ - Property Value Shorthand
+	- If variable names match property names, you can use shorthand.
+	```javascript
+		let age = 43
+		let harry = { name: 'Harry Smith', age } // age is now 43
+	```
+ - Computed Property Names
+	- Use brackets to define property names dynamically.
+	```javascript
+		let field = 'Age'
+		let harry = { name: 'Harry Smith', [field.toLowerCase()]: 42 }, // [] is used
+	```
+ - Property Name Always a String
+	- If property name doesn’t follow identifier rules, quote it.
+	```javascript
+		let harry = { name: 'Harry Smith', 'favorite beer': 'IPA' }
+	```
+ - Accessing Properties with Non-Identifier Names
+	- Use bracket notation instead of dot notation.
+	```javascript
+		harry['favorite beer'] = 'Lager'
+	```
+ - Object Literal vs. Block Statement
+	- An opening brace { can indicate an object literal or a block statement.
+	```javascript
+		{} - 1 // Interpreted as an empty block, then -1 is evaluated
+		1 - {} // Interpreted as an object literal, results in NaN
+
+	```
+ - If an object literal is falsely parsed as a block
+	- Enclose the object literal in parentheses to avoid misinterpretation as a block
+	```javascript
+		({} - 1) // Forces interpretation as an object literal
+	```
