@@ -111,9 +111,9 @@ so that the dot isn’t interpreted as a decimal separator. Use (3).toString() i
 
 **'+' operator is also used to concate strings.** 
  - If any one operand is string, then it'll result in string. Ex: 'abc'+10 = 'abc10'
- - The expression x + y is a number 
-	- if both operands are numbers
-	- A string if at least one operand is a string
+ - The expression x + y is
+	- *A number* if both operands are numbers
+	- *A string* if at least one operand is a string
  - In all other cases, the rules get complex and the results are rarely useful. 
 	- Either both operands are turned into strings and concatenated, or both are converted into numbers and added
 	- Ex: null + undefined is evaluated as the numeric addition 0 + NaN, which results in NaN
@@ -134,8 +134,8 @@ so that the dot isn’t interpreted as a decimal separator. Use (3).toString() i
 | null | 0 | 'null' |
 | undefined | NaN | 'undefined' |
 | empty array | 0 | '' |
-| array with a single number | number | a string 'number' |
-| Other arrays | NaN | string with elements of array joined by ',', like '1,2,3' |
+| array with a single element: ['number'] | number | a string 'number' |
+| Other arrays | NaN | string with elements of array joined by ' , ' like '1,2,3' |
 | Objects | NaN by default, customizable | By default, '[object Object]', but can be customized |
 
 **Tips to follow**
@@ -164,7 +164,7 @@ so that the dot isn’t interpreted as a decimal separator. Use (3).toString() i
 
  - Can contain expressions and span multiple lines
  - Can nest template literals inside the ${. . .} expressions
-	- `Hello, ${firstname.length > 0 ? `${firstname[0]}. ` : '' } ${lastname}`
+	- \`Hello, ${firstname.length > 0 ? \`${firstname[0]}. \` : '' } ${lastname}\`
  - Newlines inside the Template Literals are embedded into the string
 	```html
 	`<div>Hello</div>
@@ -172,8 +172,8 @@ so that the dot isn’t interpreted as a decimal separator. Use (3).toString() i
 	will results in 
 	`<div>Hello</div>\n<div>World</div>`
 	```
-	- Windows line endings \r\n in the source file are converted to Unix line endings \n in the resulting string
- - To include '\ $ bacticks' need to escape them with backslash
+	- Windows line endings *\r\n* in the source file are converted to Unix line endings *\n* in the resulting string
+ - To include '\ $ \`' need to escape them with backslash
  
 ### Objects
 
